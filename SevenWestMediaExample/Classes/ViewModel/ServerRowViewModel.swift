@@ -61,9 +61,9 @@ class ServerRowViewModel {
                 }
                 
             }
+        }else {        
+            completion(nil,nil)
         }
-        
-        completion(nil,nil)
         
     }
     

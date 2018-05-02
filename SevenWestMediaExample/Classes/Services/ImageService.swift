@@ -125,7 +125,7 @@ final class ImageProviderService {
                     result = .failure(ImageProviderServiceError.dataIsNilOrEmpty)
                 }
                 
-                if case .success(_) = result, let data = data {
+                if case .success(_) = result, let data = data, cache {
                     
                     self.store(imageData: data, for: url, { ( storeResult ) in
                         
@@ -213,7 +213,7 @@ extension ImageProviderService {
                                                                     includingPropertiesForKeys: [.nameKey],
                                                                     options:[])
                 
-                guard files.map({ $0.absoluteString }).contains(cacheImageName) else {
+                guard files.map({ $0.lastPathComponent }).contains(cacheImageName) else {
                     
                     DispatchQueue.main.async {
                         completion(.failure(ImageCacheError.notFoundCache(name: cacheImageName)))
@@ -224,7 +224,7 @@ extension ImageProviderService {
                 
                 let imageURL = appCache.appendingPathComponent(cacheImageName)
                 
-                guard let cacheImage = UIImage(contentsOfFile:imageURL.absoluteString) else {
+                guard let cacheImage = UIImage(contentsOfFile:imageURL.path) else {
                     
                     DispatchQueue.main.async {
                         completion(.failure(ImageCacheError.notFoundCache(name: cacheImageName)))

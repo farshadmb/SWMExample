@@ -63,6 +63,135 @@ class ServerRowViewModelTest: XCTestCase {
         
     }
     
+    /// <#Description#>
+    func testLoadModalImageWithoutCaching() {
+        
+        var disposal = Disposal()
+        
+        // Create an expectation
+        let expectation = self.expectation(description: "LoadingContent")
+        
+        let viewModal = ServerDataViewModel()
+        
+        viewModal.isLoading.observe({ (newValue, oldValue) in
+            
+            debugPrint("isLoading = \(newValue)")
+            
+        }).add(to: &disposal)
+        
+        
+        viewModal.loadData({ (result, error) in
+            
+            XCTAssertTrue(error == nil, "error occure info error\(error)")
+            
+            XCTAssertTrue(result, "result is \(result)")
+            
+            // Fullfil the expectation to let the test runner
+            // know that it's OK to proceed
+            expectation.fulfill()
+        })
+        
+        // Wait for the expectation to be fullfilled, or time out
+        // after 60 seconds. This is where the test runner will pause.
+        waitForExpectations(timeout: 60.0, handler: nil)
+        
+        XCTAssertTrue(viewModal.data != nil, "data is not fetch")
+        
+        
+        // Create an expectation for LoadingImage
+        let imageExpectation = self.expectation(description: "LoadingImage")
+
+        let rowViewModal = viewModal[at:0]
+
+        rowViewModal.image?.observe({ (newValue, oldValue) in
+            debugPrint("Image newValue = \(newValue)")
+            debugPrint("Image old = \(oldValue)")
+        }).add(to: &disposal)
+        
+        // Load Image without caching 
+        rowViewModal.loadImage(shouldCacheImage: false) { (image, error) in
+           
+            XCTAssertTrue(error == nil, "error occure info error\(error)")
+            
+            XCTAssertTrue(image != nil, "image is \(image)")
+            
+            // Fullfil the expectation to let the test runner
+            // know that it's OK to proceed
+            imageExpectation.fulfill()
+        }
+        
+        // Wait for the expectation to be fullfilled, or time out
+        // after 60 seconds. This is where the test runner will pause.
+        waitForExpectations(timeout: 60.0, handler: nil)
+        
+        disposal.removeAll()
+        
+    }
+    
+    func testLoadModalImageWithCaching() {
+        
+        var disposal = Disposal()
+        
+        // Create an expectation
+        let expectation = self.expectation(description: "LoadingContent")
+        
+        let viewModal = ServerDataViewModel()
+        
+        viewModal.isLoading.observe({ (newValue, oldValue) in
+            
+            debugPrint("isLoading = \(newValue)")
+            
+        }).add(to: &disposal)
+        
+        
+        viewModal.loadData({ (result, error) in
+            
+            XCTAssertTrue(error == nil, "error occure info error\(error)")
+            
+            XCTAssertTrue(result, "result is \(result)")
+            
+            // Fullfil the expectation to let the test runner
+            // know that it's OK to proceed
+            expectation.fulfill()
+        })
+        
+        // Wait for the expectation to be fullfilled, or time out
+        // after 60 seconds. This is where the test runner will pause.
+        waitForExpectations(timeout: 60.0, handler: nil)
+        
+        XCTAssertTrue(viewModal.data != nil, "data is not fetch")
+        
+        
+        // Create an expectation for LoadingImage
+        let imageExpectation = self.expectation(description: "LoadingImage")
+        
+        let rowViewModal = viewModal[at:0]
+        
+        rowViewModal.image?.observe({ (newValue, oldValue) in
+            debugPrint("Image newValue = \(newValue)")
+            debugPrint("Image old = \(oldValue)")
+        }).add(to: &disposal)
+        
+        // Load Image without caching
+        rowViewModal.loadImage(shouldCacheImage: true) { (image, error) in
+            
+            XCTAssertTrue(error == nil, "error occure info error\(error)")
+            
+            XCTAssertTrue(image != nil, "image is \(image)")
+            
+            // Fullfil the expectation to let the test runner
+            // know that it's OK to proceed
+            imageExpectation.fulfill()
+        }
+        
+        // Wait for the expectation to be fullfilled, or time out
+        // after 60 seconds. This is where the test runner will pause.
+        waitForExpectations(timeout: 60.0, handler: nil)
+        
+        disposal.removeAll()
+        
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
