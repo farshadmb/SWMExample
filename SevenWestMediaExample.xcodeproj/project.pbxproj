@@ -7,11 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F8280EAF2098E37D00112CF8 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8280EAE2098E37D00112CF8 /* DataService.swift */; };
+		F8280EB12098EC0A00112CF8 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8280EB02098EC0A00112CF8 /* ImageService.swift */; };
+		F8280EB520993ACF00112CF8 /* ServerDataViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8280EB420993ACF00112CF8 /* ServerDataViewModelTest.swift */; };
+		F8280EB720993AE500112CF8 /* ServerRowViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8280EB620993AE500112CF8 /* ServerRowViewModelTest.swift */; };
 		F87992602098C1BA00D03E91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879925F2098C1BA00D03E91 /* AppDelegate.swift */; };
 		F87992622098C1BA00D03E91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F87992612098C1BA00D03E91 /* Assets.xcassets */; };
 		F87992652098C1BA00D03E91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F87992632098C1BA00D03E91 /* LaunchScreen.storyboard */; };
 		F87992702098C1BA00D03E91 /* SevenWestMediaExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879926F2098C1BA00D03E91 /* SevenWestMediaExampleTests.swift */; };
 		F879927B2098C1BA00D03E91 /* SevenWestMediaExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879927A2098C1BA00D03E91 /* SevenWestMediaExampleUITests.swift */; };
+		F879928F2098C74600D03E91 /* ServerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879928E2098C74600D03E91 /* ServerDataModel.swift */; };
+		F87992912098C74F00D03E91 /* ServerRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87992902098C74F00D03E91 /* ServerRowModel.swift */; };
+		F87992962098CBA600D03E91 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87992952098CBA600D03E91 /* Observable.swift */; };
+		F87992982098CBBB00D03E91 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87992972098CBBB00D03E91 /* Disposable.swift */; };
+		F879929C2098D2C900D03E91 /* ServerDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879929B2098D2C900D03E91 /* ServerDataViewModel.swift */; };
+		F879929E2098D2E700D03E91 /* ServerRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879929D2098D2E700D03E91 /* ServerRowViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F8280EAE2098E37D00112CF8 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		F8280EB02098EC0A00112CF8 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		F8280EB420993ACF00112CF8 /* ServerDataViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDataViewModelTest.swift; sourceTree = "<group>"; };
+		F8280EB620993AE500112CF8 /* ServerRowViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRowViewModelTest.swift; sourceTree = "<group>"; };
 		F879925C2098C1BA00D03E91 /* SevenWestMediaExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SevenWestMediaExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F879925F2098C1BA00D03E91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F87992612098C1BA00D03E91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,6 +57,12 @@
 		F87992762098C1BA00D03E91 /* SevenWestMediaExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SevenWestMediaExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F879927A2098C1BA00D03E91 /* SevenWestMediaExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SevenWestMediaExampleUITests.swift; sourceTree = "<group>"; };
 		F879927C2098C1BA00D03E91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F879928E2098C74600D03E91 /* ServerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDataModel.swift; sourceTree = "<group>"; };
+		F87992902098C74F00D03E91 /* ServerRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRowModel.swift; sourceTree = "<group>"; };
+		F87992952098CBA600D03E91 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		F87992972098CBBB00D03E91 /* Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
+		F879929B2098D2C900D03E91 /* ServerDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDataViewModel.swift; sourceTree = "<group>"; };
+		F879929D2098D2E700D03E91 /* ServerRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRowViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				F879925F2098C1BA00D03E91 /* AppDelegate.swift */,
+				F87992882098C28200D03E91 /* Classes */,
 				F87992612098C1BA00D03E91 /* Assets.xcassets */,
 				F87992632098C1BA00D03E91 /* LaunchScreen.storyboard */,
 				F87992662098C1BA00D03E91 /* Info.plist */,
@@ -105,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				F879926F2098C1BA00D03E91 /* SevenWestMediaExampleTests.swift */,
+				F8280EB420993ACF00112CF8 /* ServerDataViewModelTest.swift */,
+				F8280EB620993AE500112CF8 /* ServerRowViewModelTest.swift */,
 				F87992712098C1BA00D03E91 /* Info.plist */,
 			);
 			path = SevenWestMediaExampleTests;
@@ -117,6 +140,69 @@
 				F879927C2098C1BA00D03E91 /* Info.plist */,
 			);
 			path = SevenWestMediaExampleUITests;
+			sourceTree = "<group>";
+		};
+		F87992882098C28200D03E91 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F87992942098CB8800D03E91 /* Utilites */,
+				F879928C2098C2CE00D03E91 /* Model */,
+				F879928B2098C29600D03E91 /* ViewModel */,
+				F879928D2098C2DC00D03E91 /* Services */,
+				F879928A2098C29200D03E91 /* View */,
+				F87992892098C28B00D03E91 /* Extension */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		F87992892098C28B00D03E91 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F879928A2098C29200D03E91 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F879928B2098C29600D03E91 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F879929B2098D2C900D03E91 /* ServerDataViewModel.swift */,
+				F879929D2098D2E700D03E91 /* ServerRowViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F879928C2098C2CE00D03E91 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F879928E2098C74600D03E91 /* ServerDataModel.swift */,
+				F87992902098C74F00D03E91 /* ServerRowModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F879928D2098C2DC00D03E91 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F8280EAE2098E37D00112CF8 /* DataService.swift */,
+				F8280EB02098EC0A00112CF8 /* ImageService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F87992942098CB8800D03E91 /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+				F87992952098CBA600D03E91 /* Observable.swift */,
+				F87992972098CBBB00D03E91 /* Disposable.swift */,
+			);
+			path = Utilites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,7 +338,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F87992962098CBA600D03E91 /* Observable.swift in Sources */,
+				F879929C2098D2C900D03E91 /* ServerDataViewModel.swift in Sources */,
+				F8280EB12098EC0A00112CF8 /* ImageService.swift in Sources */,
+				F879928F2098C74600D03E91 /* ServerDataModel.swift in Sources */,
+				F87992982098CBBB00D03E91 /* Disposable.swift in Sources */,
 				F87992602098C1BA00D03E91 /* AppDelegate.swift in Sources */,
+				F879929E2098D2E700D03E91 /* ServerRowViewModel.swift in Sources */,
+				F87992912098C74F00D03E91 /* ServerRowModel.swift in Sources */,
+				F8280EAF2098E37D00112CF8 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +354,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8280EB720993AE500112CF8 /* ServerRowViewModelTest.swift in Sources */,
 				F87992702098C1BA00D03E91 /* SevenWestMediaExampleTests.swift in Sources */,
+				F8280EB520993ACF00112CF8 /* ServerDataViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +508,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SevenWestMediaExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fm.SevenWestMediaExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -426,6 +523,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SevenWestMediaExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fm.SevenWestMediaExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
