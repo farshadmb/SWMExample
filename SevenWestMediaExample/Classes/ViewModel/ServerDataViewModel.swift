@@ -100,8 +100,9 @@ class ServerDataViewModel {
                 }
                 
             case .failure(let error):
-                self.isLoading.value = false
+                
                 DispatchQueue.main.async {
+                    self.isLoading.value = false
                     completion(false, error)
                 }
             }

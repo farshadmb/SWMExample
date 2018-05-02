@@ -109,9 +109,7 @@ final class ImageProviderService {
                 
                 if let error = error {
                     result = .failure(error)
-                }
-                
-                if let data = data, data.isEmpty == false{
+                }else if let data = data, data.isEmpty == false{
                     
                     if let image = UIImage(data: data, scale: UIScreen.main.scale) {
                         result = .success(image)
@@ -192,6 +190,11 @@ extension ImageProviderService {
         return url.absoluteString.data(using: .utf8)!.base64EncodedString()
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - url: <#url description#>
+    ///   - completion: <#completion description#>
     private func cacheImage(url : URL,completion : @escaping (ImageCacheResult<UIImage>) -> ()) {
         let cacheImageName = self.cacheName(url: url)
         self.cacheImage(cacheImageName: cacheImageName, completion: completion)

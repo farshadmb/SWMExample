@@ -22,6 +22,9 @@
 		F87992982098CBBB00D03E91 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87992972098CBBB00D03E91 /* Disposable.swift */; };
 		F879929C2098D2C900D03E91 /* ServerDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879929B2098D2C900D03E91 /* ServerDataViewModel.swift */; };
 		F879929E2098D2E700D03E91 /* ServerRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F879929D2098D2E700D03E91 /* ServerRowViewModel.swift */; };
+		F8ED2A7320995C4B00D67DBC /* ServiceDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED2A7220995C4B00D67DBC /* ServiceDataViewController.swift */; };
+		F8ED2A752099609E00D67DBC /* ServiceRowViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED2A742099609E00D67DBC /* ServiceRowViewCell.swift */; };
+		F8ED2A77209967C300D67DBC /* UIView+Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8ED2A76209967C300D67DBC /* UIView+Autolayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		F87992972098CBBB00D03E91 /* Disposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
 		F879929B2098D2C900D03E91 /* ServerDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerDataViewModel.swift; sourceTree = "<group>"; };
 		F879929D2098D2E700D03E91 /* ServerRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerRowViewModel.swift; sourceTree = "<group>"; };
+		F8ED2A7220995C4B00D67DBC /* ServiceDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDataViewController.swift; sourceTree = "<group>"; };
+		F8ED2A742099609E00D67DBC /* ServiceRowViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceRowViewCell.swift; sourceTree = "<group>"; };
+		F8ED2A76209967C300D67DBC /* UIView+Autolayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Autolayout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +164,7 @@
 		F87992892098C28B00D03E91 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F8ED2A76209967C300D67DBC /* UIView+Autolayout.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -165,6 +172,8 @@
 		F879928A2098C29200D03E91 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F8ED2A7220995C4B00D67DBC /* ServiceDataViewController.swift */,
+				F8ED2A742099609E00D67DBC /* ServiceRowViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -339,9 +348,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F87992962098CBA600D03E91 /* Observable.swift in Sources */,
+				F8ED2A77209967C300D67DBC /* UIView+Autolayout.swift in Sources */,
 				F879929C2098D2C900D03E91 /* ServerDataViewModel.swift in Sources */,
+				F8ED2A752099609E00D67DBC /* ServiceRowViewCell.swift in Sources */,
 				F8280EB12098EC0A00112CF8 /* ImageService.swift in Sources */,
 				F879928F2098C74600D03E91 /* ServerDataModel.swift in Sources */,
+				F8ED2A7320995C4B00D67DBC /* ServiceDataViewController.swift in Sources */,
 				F87992982098CBBB00D03E91 /* Disposable.swift in Sources */,
 				F87992602098C1BA00D03E91 /* AppDelegate.swift in Sources */,
 				F879929E2098D2E700D03E91 /* ServerRowViewModel.swift in Sources */,

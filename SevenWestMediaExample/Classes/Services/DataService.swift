@@ -98,9 +98,7 @@ class DataService {
             
             if let error = error {
                 result = .failure(error)
-            }
-            
-            if let data = data, data.isEmpty == false {
+            }else if let data = data, data.isEmpty == false {
                 
                 
                 /// <#Description#>
