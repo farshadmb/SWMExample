@@ -37,7 +37,7 @@ class ServerRowViewModel {
         self.model = model
         self.title = Observable<String?>(model.title)
         self.description = Observable<String?>(model.description)
-        
+        self.image = Observable(nil)
     }
     
     

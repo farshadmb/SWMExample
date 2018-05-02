@@ -130,7 +130,7 @@ class ServiceRowViewCell: UITableViewCell {
                 return
             }
             
-            print("error on fetch Image \(error.localizedDescription)")
+            debugPrint("error on fetch Image \(error)")
         }
         
     }

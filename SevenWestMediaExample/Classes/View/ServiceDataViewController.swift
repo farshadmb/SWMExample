@@ -36,6 +36,7 @@ class ServiceDataViewController: UITableViewController {
              self.navigationController?.navigationBar.prefersLargeTitles = true
         }
        
+        self.title = "Loading ..."
         
         setupTableView()
         setupLoadingView()
