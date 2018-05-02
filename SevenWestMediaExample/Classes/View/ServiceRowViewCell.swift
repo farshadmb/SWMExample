@@ -78,7 +78,12 @@ class ServiceRowViewCell: UITableViewCell {
         
         
         // set autolayout for rowImageView
-        self.rowImageView.pinToSuperviewEdge(.leading, inset: 16, priority:.required).isActive = true
+        if UI_USER_INTERFACE_IDIOM() == .pad {
+            self.rowImageView.leadingAnchor.constraint(equalTo: self.contentView.readableContentGuide.leadingAnchor, constant: 16).isActive = true
+        }else {
+            self.rowImageView.pinToSuperviewEdge(.leading, inset: 16, priority:.required).isActive = true
+        }
+        
         self.rowImageView.set(.height, to: 50)
         
         self.rowImageView.topAnchor.constraint(greaterThanOrEqualTo: self.contentView.topAnchor, constant: 16).isActive = true
@@ -92,7 +97,13 @@ class ServiceRowViewCell: UITableViewCell {
         
         // create autolayout for titleLabel with content compression resistance required
         self.titleLabel.pinToSuperviewEdge(.top, inset: 16, priority: .required).isActive = true
-        self.titleLabel.pinToSuperviewEdge(.trailing, inset: 16, priority: .required).isActive = true
+        
+        if UI_USER_INTERFACE_IDIOM() == .pad {
+            self.titleLabel.trailingAnchor.constraint(equalTo: self.contentView.readableContentGuide.trailingAnchor, constant: -16).isActive = true
+        }else {
+            self.titleLabel.pinToSuperviewEdge(.trailing, inset: 16, priority: .required).isActive = true
+        }
+        
         self.titleLabel.setContentCompressionResistance(for: .vertical, to: .required)
         
         // pin titleLabel leading edge to trailing of rowImageView with 8 inset
@@ -101,7 +112,12 @@ class ServiceRowViewCell: UITableViewCell {
         self.titleLabel.pinEdge(.bottom, to: .top, of: self.descriptionLabel, inset: 16, priority: .required).isActive = true
         
         // create autolayout for descriptionLabel with content compression resistance required
-        self.descriptionLabel.pinToSuperviewEdge(.trailing, inset: 16, priority: .required).isActive = true
+        if UI_USER_INTERFACE_IDIOM() == .pad {
+            self.descriptionLabel.trailingAnchor.constraint(equalTo: self.contentView.readableContentGuide.trailingAnchor, constant: -16).isActive = true
+        }else {
+            self.descriptionLabel.pinToSuperviewEdge(.trailing, inset: 16, priority: .required).isActive = true
+        }
+        
         self.descriptionLabel.pinToSuperviewEdge(.bottom, inset: 16, priority: .required).isActive = true
         self.descriptionLabel.pinEdge(.leading, to: .leading, of: self.titleLabel, inset: 0, priority: .required).isActive = true
         self.descriptionLabel.setContentCompressionResistance(for: .vertical, to: .required)
