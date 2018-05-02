@@ -8,9 +8,13 @@
 
 import Foundation
 
+/// A Data Model class
 struct ServerDataModel : Codable {
     
+    /// title value is String which represent title in Server model
     let title: String
-    let rows: [ServerRowModel] 
+    
+    /// represent of rows of `ServerRowModel`
+    let rows: [ServerRowModel]
     
 }

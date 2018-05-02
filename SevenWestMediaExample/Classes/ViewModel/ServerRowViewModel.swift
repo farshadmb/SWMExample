@@ -29,11 +29,10 @@ class ServerRowViewModel {
     /// <#Description#>
     private(set) var isLoading : Observable<Bool> = Observable(false)
     
-    /// <#Description#>
+    /// Default Initializer for `ServerRowViewModel`
     ///
-    /// - Parameter model: <#model description#>
+    /// - Parameter model: a `ServerRowModel` modal object
     init(withRow model : ServerRowModel) {
-        
         self.model = model
         self.title = Observable<String?>(model.title)
         self.description = Observable<String?>(model.description)
@@ -41,11 +40,11 @@ class ServerRowViewModel {
     }
     
     
-    /// <#Description#>
-    ///
+    /// Load image and cache in memory if you need to cache image in disk
+    /// you need pass `true` to `shouldCacheImage` parameter
     /// - Parameters:
-    ///   - shouldCacheImage: <#shouldCacheImage description#>
-    ///   - completion: <#completion description#>
+    ///   - shouldCacheImage: a boolean indicator should cache image or not
+    ///   - completion: callback closure. fire when loadImage is complete wheter have `image` or `error`
     func loadImage(shouldCacheImage : Bool = true, _ completion :@escaping (UIImage?, Error?) -> ()) {
         
         if let url = model.imageHref {

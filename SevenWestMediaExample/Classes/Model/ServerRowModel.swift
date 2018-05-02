@@ -8,10 +8,16 @@
 
 import Foundation
 
+/// Row Modal
 struct ServerRowModel : Codable {
     
+    /// repesent value of title in ServerRow JSON
     let title: String?
+    
+    /// <#Description#>
     let description: String?
+    
+    /// <#Description#>
     let imageHref: URL?
     
 }

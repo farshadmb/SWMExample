@@ -10,6 +10,7 @@ import UIKit
 
 private let cellId = "cellId"
 
+/// ServerDataViewController is presentation `ServerDataViewModel`
 class ServiceDataViewController: UITableViewController {
     
     var activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
@@ -70,6 +71,7 @@ class ServiceDataViewController: UITableViewController {
 
     //MARK: - ViewModel Methods
     
+    /// bind View to ViewModal
     func bindViewModal(){
         
         guard let viewModal = viewModal else {
@@ -82,7 +84,7 @@ class ServiceDataViewController: UITableViewController {
         
     }
     
-    /// <#Description#>
+    /// Fetch and load Modal from Service
     func loadData() {
         
         viewModal?.loadData {[weak self] (result, error) in
@@ -92,7 +94,8 @@ class ServiceDataViewController: UITableViewController {
             guard let error = error else {
                 return
             }
-            
+            // retry handler if error occured
+            // we need present a error to user
             s.handleFetch(error:error) { retry in
                 
                 if retry {
@@ -103,29 +106,31 @@ class ServiceDataViewController: UITableViewController {
         }
     }
     
-    /// <#Description#>
+    /// reload view for ViewModel Datas
     func reloadData(){
         self.tableView.reloadData()
     }
     
+    /// refresh and fresh data from Service
+    ///
+    /// - Parameter sender: UIRefreshController
     @objc
     func refreshData(_ sender : UIRefreshControl? = nil ){
-        
         self.loadData()
         
     }
     
     //MARK: - Loading View Methods
     
-    /// <#Description#>
+    /// setup and build autolayout for Loading activityIndicatorView
     fileprivate func setupLoadingView() {
         
         self.view.addSubview(activityIndicatorView)
         
         self.view.bringSubview(toFront: activityIndicatorView)
-        
         activityIndicatorView.hidesWhenStopped = true
         
+        // autolayout setup
         activityIndicatorView.alignToSuperviewAxis(.vertical).isActive = true
         activityIndicatorView.alignToSuperviewAxis(.horizontal).isActive = true
         activityIndicatorView.set(.width, to: 50.0)
@@ -133,9 +138,9 @@ class ServiceDataViewController: UITableViewController {
         
     }
     
-    /// <#Description#>
+    /// control and handle loading activityIndicatorView
     ///
-    /// - Parameter isLoading: <#isLoading description#>
+    /// - Parameter isLoading: a boolean indicator ViewModel is Fetching data or not
     func handleLoadingView(_ isLoading : Bool ) {
        
         guard viewModal?.rows.value.count == 0 else {
@@ -158,11 +163,12 @@ class ServiceDataViewController: UITableViewController {
     
     //MARK: - Error Handler
     
-    /// <#Description#>
+    /// present alert to user and wait for user reponse
     ///
     /// - Parameters:
-    ///   - error: <#error description#>
-    ///   - completion: <#completion description#>
+    ///   - error: error object to present
+    ///   - completion: a closure contain result which represent of retry, called when user tap on Alert Action
+    ///
     func handleFetch(error:Error,completion:@escaping (Bool) -> () ){
         
         let alertView = UIAlertController(title: NSLocalizedString("Error", comment: ""),

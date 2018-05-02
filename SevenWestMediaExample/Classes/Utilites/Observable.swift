@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// <#Description#>
+/// Generic Obserable Class
 final class Observable<Type> {
     
     typealias Observer = (_ newValue : Type,_ oldValue :Type?) -> ()
@@ -17,7 +17,7 @@ final class Observable<Type> {
     
     var value : Type {
         didSet{
-            
+            // fire all observer when newValue has been setted
             observers.values.forEach { (observer) in
                 observer(value,oldValue)
             }
@@ -26,13 +26,22 @@ final class Observable<Type> {
     }
     
     deinit {
+        // cleaup observer from strong reference
         removeAllObservers()
     }
     
+    /// Init Designed for Observer Class
+    ///
+    /// - Parameter value: a value of Generic `Type`
     init(_ value : Type){
         self.value = value
     }
+
     
+    /// observe and call back when a new value set
+    ///
+    /// - Parameter observer: callback closure, called when a new value is set
+    /// - Returns: Disposable Object for dispose
     @discardableResult
     func observe(_ observer : @escaping Observer) -> Disposable {
         
@@ -48,6 +57,7 @@ final class Observable<Type> {
         
     }
     
+    /// cleanup all observers
     public func removeAllObservers() {
         observers.removeAll()
     }

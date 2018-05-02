@@ -173,68 +173,81 @@ extension ImageProviderService {
 
     /// <#Description#>
     ///
-    /// - notFoundCache: <#notFoundCache description#>
-    /// - store: <#store description#>
-    /// - other: <#other description#>
+    /// - notFoundCache: when image not found in cachePath
+    /// - store: when error occured while store a image `Data` on disk
+    /// - other: other occured error such as network
     enum ImageCacheError : Error {
+        
+        /// when image not found in cachePath
         case notFoundCache(name:String)
+        
+        /// when error occured while store a image `Data` on disk
         case store(failure : Error)
+      
+        ///other occured error such as network
         case other(Error)
     }
     
     /// <#Description#>
     ///
-    /// - Parameter url: <#url description#>
-    /// - Returns: <#return value description#>
+    /// - Parameter url: image `URL` object want to cache
+    /// - Returns: unique cache Name for url parameter
     private func cacheName(url : URL) -> String {
         return url.absoluteString.data(using: .utf8)!.base64EncodedString()
     }
     
-    /// <#Description#>
+    /// Search image cache for entry url
     ///
     /// - Parameters:
-    ///   - url: <#url description#>
-    ///   - completion: <#completion description#>
+    ///   - url: a url for searching cache
+    ///   - completion: closure which contain `ImageCacheResult<UIImage>`, call when task is complete
     private func cacheImage(url : URL,completion : @escaping (ImageCacheResult<UIImage>) -> ()) {
         let cacheImageName = self.cacheName(url: url)
         self.cacheImage(cacheImageName: cacheImageName, completion: completion)
     }
     
-    /// <#Description#>
+    /// Search image cache for cacheImageName
     ///
     /// - Parameters:
-    ///   - cacheImageName: <#cacheImageName description#>
-    ///   - completion: <#completion description#>
+    ///   - cacheImageName: a `String` value for searching cache
+    ///   - completion: closure which contain `ImageCacheResult<UIImage>`, call when task is complete
     private func cacheImage(cacheImageName : String, completion : @escaping (ImageCacheResult<UIImage>) -> () ){
         
         let appCache = self.appCacheURL()
         
         DispatchQueue.global(qos: .utility).async {
             do {
-                
+                // get content of appCacheURL Directory
                 let files = try FileManager.default.contentsOfDirectory(at: appCache,
                                                                     includingPropertiesForKeys: [.nameKey],
                                                                     options:[])
-                
+                // convert files array of `URL` to array of 'String'
+                // then search array for cacheImageName
+                // if have any result we passed the guard condition
                 guard files.map({ $0.lastPathComponent }).contains(cacheImageName) else {
                     
+                    // Otherwise called completion with failure contain ImageCacheError.notFoundCache with Named
                     DispatchQueue.main.async {
                         completion(.failure(ImageCacheError.notFoundCache(name: cacheImageName)))
                     }
                     
                     return
                 }
+                
                 
                 let imageURL = appCache.appendingPathComponent(cacheImageName)
                 
+                /// read image content to image object
                 guard let cacheImage = UIImage(contentsOfFile:imageURL.path) else {
                     
+                    // a data corrupted or is not image data
                     DispatchQueue.main.async {
                         completion(.failure(ImageCacheError.notFoundCache(name: cacheImageName)))
                     }
                     
                     return
                 }
+                
                 
                 DispatchQueue.main.async {
                     completion(.success(cacheImage))
@@ -286,9 +299,9 @@ extension ImageProviderService {
         
     }
     
-    /// <#Description#>
+    /// find and return `Caches` Director for application
     ///
-    /// - Returns: <#return value description#>
+    /// - Returns: a `URL` value contain Caches Directory
     private func appCacheURL () -> URL {
         return FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).last!
     }

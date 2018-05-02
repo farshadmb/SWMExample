@@ -9,10 +9,10 @@
 import Foundation
 
 
-/// <#Description#>
+/// Array of `Disposable`
 public typealias Disposal = [Disposable]
 
-/// <#Description#>
+/// Disposable class
 public final class Disposable {
     
     private let dispose: () -> ()
